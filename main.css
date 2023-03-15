@@ -23,6 +23,8 @@ footer {
 a {
     color: green;
     text-decoration: none;
+    transition: 0.3s;
+    text-shadow: 1px 1px 1px black;
 }
 
 a:visited {
@@ -35,6 +37,9 @@ a:hover {
     text-decoration: underline;
     background-color: white;
     font-weight: bold;
+}
+a:not(:hover) {
+    transition: 1.5s;
 }
 
 a:active {
