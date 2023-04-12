@@ -57,6 +57,24 @@
             output.style.border = buttonBord
         }
 
+        function Bucket() {
+            let inputapple = document.getElementById("apple");
+            let inputpear = document.getElementById("pear");
+            let inputorang = document.getElementById("orang");
+            let inputmelon = document.getElementById("melon");
+
+            let apple = parseInt (inputapple.value);
+            let pear = parseInt (inputpear.value); 
+            let orang = parseInt (inputorang.value);
+            let melon = parseInt (inputmelon.value);
+            
+            let summ = (apple * 100) + (pear * 80) + (orang * 150) + (melon * 300);
+
+            let bucketoutput = document.getElementById("bucketoutput");
+            bucketoutput.innerHTML = summ
+
+        }
+
     </script>
     <style>
         .message {
@@ -72,6 +90,22 @@
             border: 1px solid;
             width: 300px;
             height: 40px;
+        }
+
+        .buylist {
+            border: 2px red solid;
+            border-radius: 3px;
+            padding: 10px;
+            margin: 25px;
+            width: 250px;
+        }
+
+        #bucketoutput {
+            background-color: grey;
+            border: 2px black;
+            margin: 5px;
+            padding: 5px;
+            border-radius: 5px;
         }
     </style>
 </head>
@@ -99,6 +133,25 @@
        </div>
 
        <div id="output"></div>
+
+        <div class="buylist">
+            <h2>Корзина товаров</h2>
+            <Label>Яблоки (100р/шт):</Label><br>
+            <input type="number" id="apple" value="0"><br>
+            <Label>Груши (80р/шт):</Label><br>
+            <input type="number" id="pear" value="0"><br>
+            <Label>Апельсины (150р/шт):</Label><br>
+            <input type="number" id="orang" value="0"><br>
+            <Label>Дыни (300р/шт):</Label><br>
+            <input type="number" id="melon" value="0"><br>
+
+            <button onclick="Bucket()">Рассчитать</button>
+
+            <div id="bucketoutput"></div>
+        </div>
+
+
+
     </main>
 
     <footer onclick="showAuthor()">
