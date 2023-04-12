@@ -22,6 +22,10 @@ header:active {
     font-size: 20px;
 }
 
+main {
+    margin: 10px 20px;
+}
+
 footer:hover {
     color: red;
     text-shadow: 1px 1px 3px black;
