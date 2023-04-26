@@ -6,7 +6,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Духов Денис Юрьевич. Лабораторная 6</title>
     <link rel="stylesheet" href="main.css">
-    <script></script>
+    <style>
+        .game {
+            border: 1px solid green;
+            border-radius: 15%;
+            width: 300px;
+            padding: 10px;
+            margin: 10px auto;
+        }
+    </style>
+    <script>
+        let number;
+        let count = 0;
+        function StartGame() {
+            number = Math.floor(Math.random() * 100) + 1;
+            let screens = document.getElementsByClassName('game')
+            screens[0].style.display = 'none';
+            screens[1].style.display = 'block';
+        }
+
+        function guess() {
+            count ++;
+            let input = document.getElementById('user-number');
+            let usernumber = parseInt(input.value);
+            let message = document.getElementById('result');
+
+            if (isNaN(usernumber)) {
+                message.innerHTML = 'Вы не ввели число';
+            }
+            else if (usernumber > 100) {
+                message.innerHTML = 'Число должно быть в диапазоне от 1 до 100';
+            }
+            else if (usernumber < 1) {
+                message.innerHTML = 'Число должно быть в диапазоне от 1 до 100';
+            }
+            else if (usernumber < number) {
+                message.innerHTML = 'Вы ввели слишком маленькое число';
+            }
+            else if (usernumber > number) {
+                message.innerHTML = 'Вы ввели слишком большое число';
+            }
+
+            else {
+                let screens = document.getElementsByClassName('game');
+                screens[1].style.display = 'none';
+                screens[2].style.display = 'block';
+                document.getElementById('number').innerHTML = number;
+                document.getElementById('try-count').innerHTML = count;
+            }
+
+        }
+
+        function again(params) {
+            StartGame()
+            let screens = document.getElementsByClassName('game');
+            screens[2].style.display = 'none';
+            screens[1].style.display = 'block';
+            count = 0;
+            let clearinput = document.getElementById ('user-number');
+            clearinput.value = 0;
+            document.getElementById ('result').innerHTML = '';
+        }
+    </script>
 </head>
 
 <body>
@@ -16,7 +77,35 @@
     </header>
 
     <main>
+        <div>
+            <div class="game">
+                <button onclick="StartGame()">
+                    Сыграть в игру
+                </button>
+            </div>
 
+            <div class="game" style="display: none;">
+                <h1>Угадай число!</h1>
+                <div>
+                    Задумано число от 1 до 100. Угадайте какое?<br>
+                    <input type="number" value="" min="1" max="100" id="user-number"><br>
+                    <button onclick="guess()">Угадать</button>
+                    <div id="result"></div>
+                </div>
+            </div>
+            <div class="game" style="display: none;">
+                <h1>Поздравляем, вы выиграли!</h1>
+                <div>
+                    Задуманное число: <span id="number"></span>
+                </div>
+                <div>
+                    Количество попыток: <span id="try-count"></span>
+                </div>
+                <div>
+                    <button onclick="again()">Сыграть еще раз</button>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer>
