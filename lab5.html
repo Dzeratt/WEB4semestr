@@ -72,7 +72,19 @@
 
             let bucketoutput = document.getElementById("bucketoutput");
             bucketoutput.innerHTML = summ
+        }
 
+        function InvisibleCircles() {
+            let circle1 = document.getElementById("circle1");
+            let circle2 = document.getElementById("circle2");
+            let circle3 = document.getElementById("circle3");
+            let circle4 = document.getElementById("circle4");
+            let circle5 = document.getElementById("circle5");
+            let circle6 = document.getElementById("circle6");
+            let circle7 = document.getElementById("circle7");
+            let circle8 = document.getElementById("circle8");
+            let circle9 = document.getElementById("circle9");
+            let circle10 = document.getElementById("circle10");
         }
 
     </script>
@@ -106,6 +118,17 @@
             margin: 5px;
             padding: 5px;
             border-radius: 5px;
+        }
+
+        .circles div {
+            display: inline-block;
+            height: 50px;
+            width: 50px;
+            border: 2px solid red;
+            border-radius: 50%;
+            background-color: azure;
+            text-align: center;
+            line-height: 50px;
         }
     </style>
 </head>
@@ -150,7 +173,18 @@
             <div id="bucketoutput"></div>
         </div>
 
-
+        <div class="circles">
+            <div id="circle1">1</div>
+            <div id="circle2">2</div>
+            <div id="circle3">3</div>
+            <div id="circle4">4</div>
+            <div id="circle5">5</div>
+            <div id="circle6">6</div>
+            <div id="circle7">7</div>
+            <div id="circle8">8</div>
+            <div id="circle9">9</div>
+            <div id="circle10">10</div>
+        </div>
 
     </main>
 
