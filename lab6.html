@@ -14,6 +14,27 @@
             padding: 10px;
             margin: 10px auto;
         }
+
+        .rules {
+            display: none;
+            background-color: lightgray;
+            color: lightcoral;
+            width: 400px;
+            border: 1px solid black;
+            border-radius: 15%;
+            line-height: 20px;
+        }
+
+        #rules-button-show {
+            display: block;
+            position: fixed;
+        }
+
+        #rules-button-close {
+            display: none;
+            position: fixed;
+        }
+        
     </style>
     <script>
         let number;
@@ -67,6 +88,12 @@
             clearinput.value = 0;
             document.getElementById ('result').innerHTML = '';
         }
+
+        function showRules() {
+            let changeRules = document.getElementsByClassName('rules');
+            changeRules[0].style.display = "block";
+
+        }
     </script>
 </head>
 
@@ -103,6 +130,20 @@
                 </div>
                 <div>
                     <button onclick="again()">Сыграть еще раз</button>
+                </div>
+            </div>
+
+            <div class="rulesbar">
+                <button id="rules-button-show" onclick="showRules()">Показать правила игры</button>
+                <button id="rules-button-close" onclick="showRules()">Скрыть правила игры</button>
+                <div class="rules">
+                    <ol>
+                        <li>Нажмите на кнопку "сыграть в игру"</li>
+                        <li>Введите число от 1 до 100</li>
+                        <li>Нажмите на кнопку "угадать"</li>
+                        <li>Пытайтесь угадать число по подсказкам</li>
+                        <li>После того ка угадали посмотрите резульат и нажмите на кнопку "Сыграть еще раз"</li>
+                    </ol>
                 </div>
             </div>
         </div>
