@@ -28,6 +28,16 @@
         .rules-button-close {
             display: none;
         }
+
+        .color {
+            background-color: yellow;
+            width: 200px;
+            height: auto;
+            color: red;
+            border: 2px solid purple;
+            margin-top: 20px;
+            padding: 5px;
+        }
         
     </style>
     <script>
@@ -93,6 +103,38 @@
             document.getElementsByClassName('rules-button-show')[0].style.display = "block";
             document.getElementsByClassName('rules-button-close')[0].style.display = "none";
         }
+
+        function changeColor(div) {
+            if (div.style.backgroundColor == 'yellow') {
+                div.style.backgroundColor = 'red';
+                div.style.color = 'black';
+                document.getElementById('color-name').innerHTML = 'красный';
+            }
+
+            else if (div.style.backgroundColor == 'red') {
+                div.style.backgroundColor = 'black';
+                div.style.color = 'blue';
+                document.getElementById('color-name').innerHTML = 'черный';
+            }
+
+            else if (div.style.backgroundColor == 'black') {
+                div.style.backgroundColor = 'blue';
+                div.style.color = 'white';
+                document.getElementById('color-name').innerHTML = 'синий';
+            }
+
+            else if (div.style.backgroundColor == 'blue') {
+                div.style.backgroundColor = 'green';
+                div.style.color = 'yellow';
+                document.getElementById('color-name').innerHTML = 'зеленый';
+            }
+
+            else {
+                div.style.backgroundColor = 'yellow';
+                div.style.color = 'red';
+                document.getElementById('color-name').innerHTML = 'желтый';
+            }
+        }
     </script>
 </head>
 
@@ -144,6 +186,15 @@
                         <li>После того ка угадали посмотрите резульат и нажмите на кнопку "Сыграть еще раз"</li>
                     </ol>
                 </div>
+            </div>
+
+            <div class="changes-color">
+
+                <div class="color" ondblclick="changeColor(this)">
+                    Цвет: <span id="color-name">желтый</span><br>
+                    Сделайте двойной щелчок, чтобы сменить.
+                </div>
+
             </div>
         </div>
     </main>
