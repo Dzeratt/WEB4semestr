@@ -25,14 +25,8 @@
             line-height: 20px;
         }
 
-        #rules-button-show {
-            display: block;
-            position: fixed;
-        }
-
-        #rules-button-close {
+        .rules-button-close {
             display: none;
-            position: fixed;
         }
         
     </style>
@@ -90,9 +84,14 @@
         }
 
         function showRules() {
-            let changeRules = document.getElementsByClassName('rules');
-            changeRules[0].style.display = "block";
-
+            document.getElementsByClassName('rules')[0].style.display = "block";
+            document.getElementsByClassName('rules-button-show')[0].style.display = "none";
+            document.getElementsByClassName('rules-button-close')[0].style.display = "block";
+        }
+        function closeRules() {
+            document.getElementsByClassName('rules')[0].style.display = "none";
+            document.getElementsByClassName('rules-button-show')[0].style.display = "block";
+            document.getElementsByClassName('rules-button-close')[0].style.display = "none";
         }
     </script>
 </head>
@@ -134,10 +133,10 @@
             </div>
 
             <div class="rulesbar">
-                <button id="rules-button-show" onclick="showRules()">Показать правила игры</button>
-                <button id="rules-button-close" onclick="showRules()">Скрыть правила игры</button>
+                <button class="rules-button-show" onclick="showRules()">Показать правила игры</button>
+                <button class="rules-button-close" onclick="closeRules()">Скрыть правила игры</button>
                 <div class="rules">
-                    <ol>
+                    <ol style=" list-style-type: upper-roman;">
                         <li>Нажмите на кнопку "сыграть в игру"</li>
                         <li>Введите число от 1 до 100</li>
                         <li>Нажмите на кнопку "угадать"</li>
