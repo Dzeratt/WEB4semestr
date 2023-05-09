@@ -38,6 +38,22 @@
             margin-top: 20px;
             padding: 5px;
         }
+
+        #moving-block {
+            position: absolute;
+            left: 0;
+            transform: translateX(0%);
+            transition: all 2s ease-out;
+            background-color: aquamarine;
+            width: 150px;
+            height: 150px;
+            margin-top: 30px;
+            text-align: center;
+            line-height: 150px;
+            cursor: pointer;
+            border: 2px solid green;
+            border-radius: 10%;
+        }
         
     </style>
     <script>
@@ -135,6 +151,19 @@
                 document.getElementById('color-name').innerHTML = 'желтый';
             }
         }
+
+        function moveBlock() {
+            let block = document.getElementById("moving-block");
+            if (block.style.left == "0px") {
+            block.style.transform = "rotate(4turn)";
+            block.style.left = "calc(100% - 150px)";
+            
+            } else {
+            block.style.left = "0";
+            block.style.transform = "rotate(0)";
+            }
+        }
+    
     </script>
 </head>
 
@@ -196,6 +225,9 @@
                 </div>
 
             </div>
+
+            <div id="moving-block" onclick="moveBlock()">Щелкни меня</div>
+
         </div>
     </main>
 
