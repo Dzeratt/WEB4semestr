@@ -9,7 +9,7 @@
     <style>
         .game {
             border: 1px solid green;
-            border-radius: 15%;
+            border-radius: 10px;
             width: 300px;
             padding: 10px;
             margin: 10px auto;
@@ -21,7 +21,7 @@
             color: lightcoral;
             width: 400px;
             border: 1px solid black;
-            border-radius: 15%;
+            border-radius: 15px;
             line-height: 20px;
         }
 
@@ -53,6 +53,16 @@
             cursor: pointer;
             border: 2px solid green;
             border-radius: 10%;
+        }
+
+        #myBlock {
+            width: 100px;
+            cursor: pointer;
+            background-color: pink;
+            margin-top: 200px;
+            text-align: center;
+            border: 2px solid red;
+            border-radius: 10px;
         }
         
     </style>
@@ -156,11 +166,22 @@
             let block = document.getElementById("moving-block");
             if (block.style.left == "0px") {
             block.style.transform = "rotate(4turn)";
-            block.style.left = "calc(100% - 150px)";
+            block.style.left = "calc(100% - 153px)";
             
             } else {
             block.style.left = "0";
             block.style.transform = "rotate(0)";
+            }
+        }
+
+        function increaseWidth() {
+            const block = document.getElementById("myBlock");
+            const currentWidth = parseInt(block.style.width);
+            const newWidth = currentWidth + 50;
+            if (newWidth <= 1000) {
+            block.style.width = newWidth + "px";
+            } else {
+            block.style.width = "100px";
             }
         }
     
@@ -227,6 +248,8 @@
             </div>
 
             <div id="moving-block" onclick="moveBlock()">Щелкни меня</div>
+
+            <div id="myBlock" onclick="increaseWidth()">Расширение</div>
 
         </div>
     </main>
