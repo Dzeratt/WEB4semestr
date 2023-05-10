@@ -58,6 +58,33 @@
                 newOpacity += 0.1;
             }
         }
+
+        function greenRed() {
+            let circles = document.getElementById('circles');
+            let currentNum = document.getElementById('inpNum');
+            let numCircles = parseInt(currentNum.value);
+            
+            for (let i = numCircles; i > 0; i--) {
+                let newCircles = document.createElement('div');
+                newCircles.innerHTML = (i)
+                
+                if (i % 2 == 0) {
+                    newCircles.style.backgroundColor = 'green'; 
+                }
+                else {
+                    newCircles.style.backgroundColor = 'red'
+                }
+                newCircles.style.height = '50px';
+                newCircles.style.width = '50px';
+                newCircles.style.margin = '5px';
+                newCircles.style.borderRadius = '50%';
+                newCircles.style.display = 'inline-block';
+                newCircles.style.textAlign = 'center';
+                newCircles.style.lineHeight = '50px';
+
+                circles.appendChild(newCircles);
+            }
+        }
     </script>
 </head>
 
@@ -86,6 +113,15 @@
             <div id="transparent-blocks"></div>
 
         </div>
+
+        <div>
+
+            <input id='inpNum' type='number' value='5' placeholder='введите число кругов'>
+            <button onclick="greenRed()">Красное/зеленое</button>
+            <div id="circles"></div>
+
+        </div>
+
     </main>
 
     <footer>
