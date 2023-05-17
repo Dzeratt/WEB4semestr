@@ -98,6 +98,42 @@
                 newTable.appendChild(newTr)
             }
         }
+
+        function showCurs() {
+
+            let curs = [740, 730, 722, 722.50, 716.50, 726, 736.50, 730, 731.50, 735.50];
+            let date = ['02.05.2023', '03.05.2023', '04.05.2023', '05.05.2023', '08.05.2023', '10.05.2023', '11.05.2023', '12.05.2023',
+            '15.05.2023', '16.05.2023'];
+            let cursTable = document.getElementById('TableCurs');
+
+            for (let i = 0; i<curs.length; i++) {
+                let tr = document.createElement('tr');
+                let dateTd = document.createElement('td');
+                let cursTd = document.createElement('td');
+                let newTd = document.createElement('td');
+                dateTd.innerHTML = date[i];
+                cursTd.innerHTML = curs[i];
+                newTd.innerHTML = (curs[i] - curs[i-1]).toFixed(2);
+                tr.appendChild(dateTd);
+                tr.appendChild(cursTd);
+                tr.appendChild(newTd);
+                cursTable.appendChild(tr);
+            }
+            
+            let sum = 0;
+            for (let i = 0; i<curs.length; i++) {
+                sum = sum + curs[i];
+            }
+            let average = sum / curs.length;
+            document.getElementById('middlenum').innerHTML = 'Среднее значение: ' + average;
+
+            let maxCurs = Math.max(...curs);
+            let minCurs = Math.min(...curs);
+            document.getElementById('max').innerHTML = 'Максимльное значение: ' + maxCurs;
+            document.getElementById('min').innerHTML = 'Минимальное значение: ' + minCurs;
+ 
+
+        }
     </script>
 </head>
 
@@ -139,6 +175,16 @@
 
             <button id="currentTable" onclick="tableUmno()">Таблица умножения</button>
             <table border="1" id="tableOfUmno"></table>
+
+        </div>
+
+        <div id="companycurs">
+
+            <button id="curs" onclick="showCurs()">Курс акций МКПАО "Лента"</button>
+            <table border="1" id="TableCurs"></table>
+            <div id="middlenum"></div>
+            <div id="max"></div>
+            <div id="min"></div>
 
         </div>
 
