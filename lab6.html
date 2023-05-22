@@ -170,12 +170,12 @@
         function moveBlock() {
             let block = document.getElementById("moving-block");
             if (block.style.left == "0px") {
-            block.style.transform = "rotate(4turn)";
-            block.style.left = "calc(100% - 153px)";
+                block.style.transform = "rotate(4turn)";
+                block.style.left = "calc(100% - 153px)";
             
             } else {
-            block.style.left = "0";
-            block.style.transform = "rotate(0)";
+                block.style.left = "0";
+                block.style.transform = "rotate(0)";
             }
         }
 
@@ -184,9 +184,9 @@
             const currentWidth = parseInt(block.style.width);
             const newWidth = currentWidth + 50;
             if (newWidth <= 1000) {
-            block.style.width = newWidth + "px";
+                block.style.width = newWidth + "px";
             } else {
-            block.style.width = "100px";
+                block.style.width = "100px";
             }
         }
 
@@ -302,9 +302,9 @@
                 
                 Тип одежды:
                 <select id="wear-type">
-                <option>Футболка</option>
-                <option>Поло</option>
-                <option>Майка</option>
+                    <option>Футболка</option>
+                    <option>Поло</option>
+                    <option>Майка</option>
                 </select>
 
             </div>
