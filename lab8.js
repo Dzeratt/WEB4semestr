@@ -18,3 +18,21 @@ function showDate() {
     out4.innerHTML = 'Дата и время для германской локали: ' + today4.toLocaleString('de-DE');
     out5.innerHTML = 'Дата и время для английской локали: ' + today5.toLocaleString('en-GB');
 }
+
+function showDaysCount() {
+    let today = new Date();
+    let inputDate = document.querySelector('input[type=date]');
+    let result = document.getElementById('rusult-count');
+    let birthDay = new Date(inputDate.value);
+    let daysCount = (today - birthDay)/1000/60/60/24;
+    daysCount = Math.floor(daysCount);
+    result.innerHTML = "Количесвто дней с даты рождения: " + daysCount;
+}
+
+function clearInput() {
+    let inputDate = document.querySelector('input[type=date]');
+    let result = document.getElementById('rusult-count');
+
+    inputDate.value = ""
+    result.innerHTML = ""
+}
